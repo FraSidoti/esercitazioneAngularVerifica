@@ -1,0 +1,19 @@
+<div *ngIf="data; else noData" class="card">
+  <div class="header">
+    <h2>{{ data.name }}, {{ data.sys?.country }}</h2>
+    <div class="temp">{{ data.main?.temp | number:'1.0-0' }}°C</div>
+  </div>
+
+  <div class="body">
+    <img *ngIf="data.weather?.[0]" [src]="getIconUrl(data.weather[0].icon)" [alt]="data.weather[0].description" />
+    <div class="desc">
+      <div class="main">{{ data.weather?.[0]?.description }}</div>
+      <div>Umidità: {{ data.main?.humidity }}%</div>
+      <div>Vento: {{ data.wind?.speed }} m/s</div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noData>
+  <div class="placeholder">Cerca una città per vedere il meteo.</div>
+</ng-template>

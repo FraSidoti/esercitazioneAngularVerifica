@@ -1,0 +1,11 @@
+<div *ngIf="forecastData && dailyList.length" class="forecast">
+  <h3>Previsioni (prossime 24h)</h3>
+  <div class="list">
+    <div class="item" *ngFor="let f of dailyList">
+      <div class="time">{{ f.dt_txt | date:'HH:mm' }}</div>
+      <img [src]="iconUrl(f.icon)" [alt]="f.desc" />
+      <div class="temp">{{ f.temp | number:'1.0-0' }}°C</div>
+      <div class="desc">{{ f.desc }}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <app-search-bar (search)="onSearch($event)"></app-search-bar>
+
+  <div *ngIf="loading" class="loader">Caricamento...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <app-current-weather [data]="current"></app-current-weather>
+
+  <app-forecast [forecastData]="forecast"></app-forecast>
+</div>
